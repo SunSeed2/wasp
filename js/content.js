@@ -1,11 +1,18 @@
+//// Default lists
+
+// String List
 let myString  = ["cat","dog","fox","This is test link"];
 
-let myTagList = ["p","h1","h2","h3","h4","h5","label","a"];
-let myAttributeList = ["aria-label","href"];
+// Tag List
+let myTagList = ["p","h1","h2","h3","h4","h5","label","a", "span"];
+// Attribute List
+let myAttributeList = ["aria-label"];
 
+////
 
+//// Loop functions
 
-function tagLister(taglist){
+function tagLister(taglist){ //Go through each tag from provided Tag List
 	for(let i=0; i<taglist.length;i++)
 		{
 			
@@ -18,7 +25,7 @@ function tagLister(taglist){
 		}
 }
 
-function attributeLister(attributeList){
+function attributeLister(attributeList){ //Go through each tag that have provided Attibutes from Attribute List
 	for(let i=0; i<attributeList.length;i++)
 		{
 			
@@ -32,8 +39,7 @@ function attributeLister(attributeList){
 		}
 }
 
-
-function stringCompare(stringlist, compareContent){
+function stringCompare(stringlist, compareContent){ // Compare string from Strinbg List with Tag content
 	
 	for(let i=0; i<stringlist.length;i++)
 		{
@@ -46,7 +52,7 @@ function stringCompare(stringlist, compareContent){
 
 }
 
-function stringCompareAttribute(stringlist, compareContent,attributeName){
+function stringCompareAttribute(stringlist, compareContent,attributeName){ // Compare string from String List with Tag content that have Attribute
 	
 	for(let i=0; i<stringlist.length;i++)
 		{
@@ -59,24 +65,32 @@ function stringCompareAttribute(stringlist, compareContent,attributeName){
 
 }
 
-function getAllElementByTag(tag_name){
+function getAllElementByTag(tag_name){ // Collect all element that have Tag name
 	let collection  = document.getElementsByTagName(tag_name);
 	return collection;
 }
 
-/////
+////
 
-tagLister(myTagList);
-attributeLister(myAttributeList);
-//stringCompare(myString,"fox");
+//// Wasp runner
 
-// Add styles
-//
-//
-//
+function runWasp(){
+	tagLister(myTagList);
+	attributeLister(myAttributeList);
+	//stringCompare(myString,"fox");
+}
+
+runWasp();
+
+////
+
+//// Add styles
+
 let myStyles = document.createElement('link');
 myStyles.href = '../css/content.css';
 myStyles.rel = 'stylesheet';
 
 document.body.appendChild(myStyles);
-///////
+
+////
+
