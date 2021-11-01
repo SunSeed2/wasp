@@ -1,7 +1,7 @@
 //// Default lists
 
 // String List
-let myString  = ["cat","dog","fox","This is test link"];
+let myString  = ["cat","dog","fox","This is test link","Global Attributes"];
 
 // Tag List
 let myTagList = ["p","h1","h2","h3","h4","h5","label","a", "span"];
@@ -72,6 +72,19 @@ function getAllElementByTag(tag_name){ // Collect all element that have Tag name
 
 ////
 
+//// Cleaners
+
+function cleanCustomClasses(className){
+	let collection = document.querySelectorAll("." + className);
+
+	for(let i=0; i<collection.length; i++){
+		collection[i].classList.remove(className);
+	}
+	console.log("All " + collection.length + " classes are removed");
+}
+
+//// 
+
 //// Wasp runner
 
 function runWasp(){
@@ -86,11 +99,12 @@ runWasp();
 
 //// Add styles
 
+/*
 let myStyles = document.createElement('link');
 myStyles.href = '../css/content.css';
 myStyles.rel = 'stylesheet';
 
 document.body.appendChild(myStyles);
-
+*/
 ////
 
