@@ -4,7 +4,7 @@
 let myString  = ["cat","dog","fox","This is test link","Visual experience composer","Set Default URL"];
 
 // Tag List
-let myTagList = ["p","h1","h2","h3","h4","h5","label","a", "span","button"];
+let myTagList = ["span","p","h1","h2","h3","h4","h5","label","a", "button"];
 // Attribute List
 let myAttributeList = ["aria-label"];
 
@@ -39,13 +39,35 @@ function attributeLister(attributeList){ //Go through each tag that have provide
 		}
 }
 
+function tagWrapper(element,className){
+	let parent = element.parentNode;
+	let wrapper = document.createElement("span");
+	wrapper.classList.add(className);
+
+	if(parent.classList.contains(className)){ 
+		return 
+	}
+	else
+	{
+	//parent.replaceChild(wrapper,element);
+
+	parent.insertBefore(wrapper,element)
+	wrapper.appendChild(element);
+	
+
+	}
+
+	
+}
+
 function stringCompare(stringlist, compareContent){ // Compare string from Strinbg List with Tag content
 	
 	for(let i=0; i<stringlist.length;i++)
 		{
 			if(stringlist[i] == compareContent.innerHTML){
 				
-				compareContent.classList.add('alite_tag');
+				tagWrapper(compareContent,"alite_tag");
+				//compareContent.classList.add('alite_tag');
 				
 			}
 		}
@@ -58,7 +80,8 @@ function stringCompareAttribute(stringlist, compareContent,attributeName){ // Co
 		{
 			if(stringlist[i] == compareContent.getAttribute(attributeName)){
 				
-				compareContent.classList.add('alite_attibute');
+				tagWrapper(compareContent,"alite_attibute");
+				//compareContent.classList.add('alite_attibute');
 				
 			}
 		}
