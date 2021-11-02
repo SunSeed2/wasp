@@ -22,7 +22,7 @@
 	  {
 		  "all_frames": true,
       "matches": ["<all_urls>"],
-		  "js": ["js/content.js"],
+		  "js": ["js/jquery-3.6.0.min.js","js/content.js"],
       "css": ["css/content.css"],
       "match_about_blank": true,
       "run_at": "document_idle"
