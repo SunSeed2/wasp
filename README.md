@@ -3,7 +3,7 @@ Chrome extension and would find each element that contanin text from list of str
 
 
 To Do:
-- Func: Get string list from Google Spreadseet
+- Func: Get string list from Google Spreadseet -> in Progress
 - Func: Define if string contain variables
 - Func: Search using RegEx to define if tag text partially contain expected string
 - UI: Project Add/Delete/Modufy tab to be added
