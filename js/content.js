@@ -11,9 +11,17 @@ let myAttributeList = ["aria-label"];
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponce){
-	console.log(message.txt);
 	
+	console.log(message);
+	myString = [];
+
+	for (let i = 0; i<message.length; i++){
+		myString.push(message[i]);
+	}
+	
+
 }
+
 
 ////
 
@@ -148,6 +156,7 @@ function runWasp(){
 	attributeLister(myAttributeList);
 	//stringCompare(myString,"fox");
 	//console.log("Wasp triggered");
+	//console.log(myString);
 }
 
 runWasp();
