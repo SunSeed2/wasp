@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Wasp Extension",
   "description": "Chrome extension and would find each element that contanin text from list of strings.",
-  "version": "1.0",
+  "version": "1.1",
 
   "browser_action": {
     "default_icon": {
