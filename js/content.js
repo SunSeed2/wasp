@@ -8,6 +8,13 @@ let myTagList = ["span","p","h1","h2","h3","h4","h5","label","a", "button"];
 // Attribute List
 let myAttributeList = ["aria-label"];
 
+chrome.runtime.onMessage.addListener(gotMessage);
+
+function gotMessage(message, sender, sendResponce){
+	console.log(message.txt);
+	
+}
+
 ////
 
 //// Loop functions
