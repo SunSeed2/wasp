@@ -1,11 +1,20 @@
-// request those are being sent
-/*
-chrome.webRequest.onBeforeSendHeaders.addListener(function (e){
+chrome.browserAction.onClicked.addListener(buttonClicked)
 
-    console.log(e);
+function buttonClicked(tab){
+    
+    let myURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAt81lOA3dFSY_DGBiWPD253989mlwanh0-y4woqInuNlqR_hpagdf6oGab2WZDXkqFJKyWHbpFkJF/pub?gid=2048388156&single=true&output=tsv"
+    
+    fetch(myURL).then(r => r.text()).then(result =>{
+        
+        var msg = result.split(/\r?\n/);
 
 
-},{
-    urls: ["<all_urls>"],
-    types: ["xmltttpRequests"]
-},["responseHeaders"]);*/
+        console.log(msg);
+        chrome.tabs.sendMessage(tab.id, msg)
+    })
+
+
+
+    
+}
+

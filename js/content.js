@@ -4,9 +4,24 @@
 let myString  = ["cat","dog","fox","This is test link","Visual experience composer","Set Default URL"];
 
 // Tag List
-let myTagList = ["span","p","h1","h2","h3","h4","h5","label","a", "button"];
+let myTagList = ["span","p","h1","h2","h3","h4","h5","label","a", "button", "textarea"];
 // Attribute List
-let myAttributeList = ["aria-label"];
+let myAttributeList = ["aria-label", "placeholder"];
+
+chrome.runtime.onMessage.addListener(gotMessage);
+
+function gotMessage(message, sender, sendResponce){
+	
+	console.log(message);
+	myString = [];
+
+	for (let i = 0; i<message.length; i++){
+		myString.push(message[i]);
+	}
+	
+
+}
+
 
 ////
 
@@ -141,6 +156,7 @@ function runWasp(){
 	attributeLister(myAttributeList);
 	//stringCompare(myString,"fox");
 	//console.log("Wasp triggered");
+	//console.log(myString);
 }
 
 runWasp();
