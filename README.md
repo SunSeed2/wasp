@@ -3,7 +3,6 @@ Chrome extension and would find each element that contanin text from list of str
 
 
 To Do:
-- Func: Get string list from Google Spreadseet
 - Func: Define if string contain variables
 - Func: Search using RegEx to define if tag text partially contain expected string
 - UI: Project Add/Delete/Modufy tab to be added
@@ -13,6 +12,10 @@ To Do:
 
 
 Released:
+1.1
+- Func: Get string list from Google Spreadseet
+
+1.0
 - Find and Compare string through all applicable Tags
 - Find and Compare string through Tags that have aria-label attribute
 - Script auto-trigger set to 2 sec.
