@@ -11,15 +11,15 @@
       "16":"icons/alpha_64.png",
       "48":"icons/alpha_64.png",
       "128":"icons/alpha_64.png"    
-    }//,
-    //"default_popup": "popup.html"
+    },
+    "default_popup": "popup.html"
   },
   "icons":{
     "16":"icons/alpha_64.png",
     "48":"icons/alpha_64.png",
     "128":"icons/alpha_64.png"    
   },
-  "permissions": ["tabs", "contextMenus", "notifications", "alarms", "storage"],
+  "permissions": ["tabs", "contextMenus", "notifications", "alarms", "storage","background"],
   "content_scripts":[
 	  {
 		  "all_frames": true,

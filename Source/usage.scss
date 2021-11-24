@@ -1,0 +1,135 @@
+$Color1: #f5f5f5;
+$Color2: #ffffff;
+$Color3: #e9e9ea;
+$Color4: #1d1e1c;
+$Color5: #feed01;
+$Color6: #2d2d2a;
+$hr: #ebebec;
+
+* {
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+}
+
+html {
+  min-width: 600px;
+  min-height: 480px;
+}
+
+body {
+  //widows: 600px;
+  background-color: $Color1;
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times,
+    "Times New Roman", serif;
+}
+
+header {
+  width: 100%;
+  background-color: $Color2;
+  //height: 80px;
+  padding: 20px 20px 15px;
+  border-bottom-width: 1px;
+  border-bottom-color: $hr;
+  border-bottom-style: solid;
+  h2 {
+    border-top: 1px solid $Color5;
+    border-bottom: 1px solid $Color5;
+  }
+  .title {
+    //align-content: center;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // height: 200px;
+    // border: 3px solid green;
+  }
+
+  .underline {
+    background-color: $Color5;
+    margin: 5px 0px 5px 0px;
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+  }
+
+  img {
+    $imgSize: 25px;
+    width: $imgSize;
+    height: $imgSize;
+    margin: 0px 2px;
+  }
+}
+
+main {
+  //height: 150px;
+  //padding: 10px;
+  position: relative;
+  .secHidden {
+    visibility: hidden;
+  }
+  .container {
+    margin: 10px;
+  }
+  section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+footer {
+  width: 100%;
+  background-color: $Color6;
+  
+  color: $Color3;
+  text-align: center;
+  padding: 15px 0px;
+
+  position: fixed;
+  bottom: 0;
+  border-top-width: 1px;
+  border-top-color: $hr;
+  border-top-style: solid;
+  border-bottom: 2px $Color4 solid;
+}
+
+nav {
+  padding: 5px 0px;
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times,
+    "Times New Roman", serif;
+  a,
+  a:active,
+  a:visited {
+    color: $Color4;
+  }
+
+  $colorRed: #f95b39;
+  $colorOrange: #f9b400;
+  $colorYelloy: #fee920;
+  $colorTill: #76cbc7;
+  $lineWidth: 1px;
+
+  span.red {
+    border-left: $lineWidth solid $colorRed;
+  }
+  span.orange {
+    border-left: $lineWidth solid $colorOrange;
+  }
+  span.yellow {
+    border-left: $lineWidth solid $colorYelloy;
+  }
+  span.till {
+    border-left: $lineWidth solid $colorTill;
+  }
+
+  ul li {
+    margin-right: 5px;
+    display: inline;
+    text-transform: uppercase;
+  }
+}

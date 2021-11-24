@@ -1,9 +1,13 @@
 .alite_tag {
   border-style: solid;
   border-color: coral;
-  padding: 5px; }
+  background-color: khaki;
+  padding: 5px;
+}
 
 .alite_attibute {
   border-style: solid;
   border-color: darkmagenta;
-  padding: 5px; }
+  padding: 5px;
+}
+/*# sourceMappingURL=content.css.map */
