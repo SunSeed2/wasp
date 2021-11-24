@@ -1,12 +1,12 @@
 # wasp
-Chrome extension and would find each element that contanin text from list of strings.
+Chrome extension that would find each element that contain text from list of strings.
 
 
 To Do:
 - Func: Define if string contain variables
 - Func: Search using RegEx to define if tag text partially contain expected string
-- UI: Project Add/Delete/Modufy tab to be added
-- UI: About box to be added
+- UI: Project Add/Delete/Modufy tab to be added (In progress)
+- UI: About box to be added (In progress)
 - UI: Manual scritp trigger button
 - TBD
 

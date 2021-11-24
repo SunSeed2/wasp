@@ -170,7 +170,7 @@ function cleanCustomClasses(className) {
 function runWasp() {
   cleanCustomClasses("alite_tag");
   cleanCustomClasses("alite_attibute");
-
+  listUpdated();
   tagLister(myTagList);
   attributeLister(myAttributeList);
 }
@@ -180,12 +180,12 @@ runWasp();
 setInterval(function () {
   runWasp();
 }, 2000);
-setInterval(function () {
+/*setInterval(function () {
   listUpdated();
-}, 10000);
-setInterval(function () {
+}, 10000);*/
+/*setInterval(function () {
   console.log(myString);
-}, 5000);
+}, 5000);*/
 
 function listUpdated() {
   chrome.storage.sync.get(["waspStringList"], function (result) {

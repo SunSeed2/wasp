@@ -33,7 +33,7 @@ addProject(TestData);
 
 setInterval(function () {
   addStringListFromURL(Target.URL);
-}, 10000);
+}, 300000); //1000 ms = 1 second.
 /////////////////////////////////////////////////////////////////////////////
 
 async function addStringListFromURL(URL) {
