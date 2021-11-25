@@ -23,6 +23,8 @@ body {
   background-color: $Color1;
   font-family: Cambria, "Hoefler Text", "Liberation Serif", Times,
     "Times New Roman", serif;
+  line-height: 20px;
+  font-weight: 400;
 }
 
 header {
@@ -71,7 +73,9 @@ main {
     visibility: hidden;
   }
   .container {
-    margin: 10px;
+    //margin: 10px;
+    margin: 0 auto;
+    padding: 10px;
   }
   section {
     position: absolute;
@@ -80,12 +84,47 @@ main {
     width: 100%;
     height: 100%;
 
-    h3{
+    h3 {
       margin: 10px 0px;
     }
 
-    p{
+    p {
       margin: 10px 0px;
+    }
+
+    .table {
+      margin: 10px 0 40px 0;
+      width: 100%;
+      box-shadow: 0 1px 3 px rgba(0, 0, 0, 0.2);
+      display: table;
+    }
+
+    .row {
+      display: table-row;
+      background: #f6f6f6;
+
+      &:nth-of-type(odd) {
+        background: #e9e9e9;
+      }
+
+      &.header {
+        font-weight: 900;
+        color: #ffffff;
+        background: #ea6153;
+
+        &.green {
+          background: #27ae60;
+        }
+
+        &.blue {
+          background: #2980b9;
+        }
+      }
+    }
+
+    .cell {
+      padding: 6px 12px;
+      display: table-cell;
     }
   }
 }
@@ -93,7 +132,7 @@ main {
 footer {
   width: 100%;
   background-color: $Color6;
-  
+
   color: $Color3;
   text-align: center;
   padding: 15px 0px;
@@ -141,3 +180,4 @@ nav {
     text-transform: uppercase;
   }
 }
+

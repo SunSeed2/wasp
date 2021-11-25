@@ -170,7 +170,7 @@ function cleanCustomClasses(className) {
 function runWasp() {
   cleanCustomClasses("alite_tag");
   cleanCustomClasses("alite_attibute");
-  listUpdated();
+  //listUpdated();
   tagLister(myTagList);
   attributeLister(myAttributeList);
 }
@@ -180,9 +180,9 @@ runWasp();
 setInterval(function () {
   runWasp();
 }, 2000);
-/*setInterval(function () {
+setInterval(function () {
   listUpdated();
-}, 10000);*/
+}, 60000);
 /*setInterval(function () {
   console.log(myString);
 }, 5000);*/

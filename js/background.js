@@ -15,6 +15,12 @@ const totalStringList = [];
 
 function addProject(project) {
   projectList.push(project);
+
+  chrome.storage.sync.set({ projectListGlobal: projectList }, function (result) {
+   
+    console.log("qwe");
+  });
+
 }
 
 function deleteProject(projectList, projectName) {
@@ -59,11 +65,6 @@ async function addStringListFromURL(URL) {
   }
 }
 
-/*
-chrome.storage.sync.get(['waspStringList'], function(result) {
-  console.log('Value currently is ' + result.waspStringList);
-});
-*/
 
 function stringMerger(original, extend) {
   let result = [];
