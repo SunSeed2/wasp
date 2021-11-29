@@ -7,17 +7,10 @@ let qqq = [
   "fox",
   "This is test link",
   "Visual experience composer",
-  "Set Default URL",
+  "Set Default URL"
 ];
 
-var myString = [
-  "cat",
-  "dog",
-  "fox",
-  "This is test link",
-  "Visual experience composer",
-  "Set Default URL",
-];
+var myString = [];
 
 // Tag List
 let myTagList = [
@@ -32,6 +25,7 @@ let myTagList = [
   "a",
   "button",
   "textarea",
+  "div"
 ];
 // Attribute List
 let myAttributeList = ["aria-label", "placeholder"];
@@ -168,6 +162,9 @@ function cleanCustomClasses(className) {
 //// Wasp runner
 
 function runWasp() {
+  
+  //console.log(myString);
+
   cleanCustomClasses("alite_tag");
   cleanCustomClasses("alite_attibute");
   //listUpdated();
@@ -175,22 +172,52 @@ function runWasp() {
   attributeLister(myAttributeList);
 }
 
-runWasp();
+chrome.runtime.sendMessage({message: "getStringValue"}, (response) => {
+  myString = response.message;
+  runWasp();
+});
+
 
 setInterval(function () {
   runWasp();
-}, 2000);
-setInterval(function () {
+}, 1000);
+
+
+/*setInterval(function () {
+  chrome.runtime.sendMessage({message: "onlyStrings"}, (response) => {
+    myString = response.message;
+  });
+  //alert('1');
+}, 10000);*/
+
+
+chrome.runtime.onMessage.addListener(
+  (request, sender, sendResponse) => {
+    
+    switch(request.message){
+
+      case "stringListUpdated":
+        
+        listUpdated();
+
+      break;
+
+    }         
+  });
+
+
+
+/*setInterval(function () {
   listUpdated();
-}, 60000);
+}, 60000);*/
 /*setInterval(function () {
   console.log(myString);
 }, 5000);*/
 
 function listUpdated() {
-  chrome.storage.sync.get(["waspStringList"], function (result) {
-    myString = [];
-    myString = result.waspStringList;
+  chrome.runtime.sendMessage({message: "onlyStrings"}, (response) => {
+    myString = response.message;
+    console.log(myString);
   });
 }
 

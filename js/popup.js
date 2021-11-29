@@ -21,36 +21,89 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   addVisibilityOption(); // Trigger Navigations
+  
 });
 
 var vGetCurrentStrings = document.getElementById("aGetCurrentStrings");
 vGetCurrentStrings.addEventListener("click", function () {
-  chrome.storage.sync.get(["waspStringList"], function (result) {
-    console.log(result.waspStringList);
+  
+  chrome.runtime.sendMessage({message: "getStringValue"}, (response) => {
+    console.log(response.message);
   });
+  /*chrome.storage.sync.get(["waspStringList"], function (result) {
+    console.log(result.waspStringList);
+  });*/
 });
 
-/*var vSyncStrings = document.getElementById("aSyncStrings");
-vSyncStrings.addEventListener("click", function () {});*/
 
 var vSyncStrings = document.getElementById("aSyncStrings");
 vSyncStrings.addEventListener("click", function () {
-  /*let TestData = {
-    name: "test data",
-    URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT6K757OpLLoz3LooGW531zWUGxaIWmTUkP5dqKrF166jP1XOzz-7l4n8IjkIw0ljBgWDY-5FVnGH83/pub?gid=1210195179&single=true&output=tsv",
-    status: "1",
-  };*/
-
-  chrome.storage.sync.get(["projectListGlobal"], function (result) {
-    var bgPage = chrome.extension.getBackgroundPage();
-    bgPage.addStringListFromURL(result.projectListGlobal[1].URL);
+  chrome.runtime.sendMessage({message: "syncProjects"}, (response) => {
+    console.log(response.message);
   });
-
+  /*chrome.storage.sync.get(["projectListGlobal"], function (result) {
+    var bgPage = chrome.extension.getBackgroundPage();
+    bgPage.addStringListFromURL(result.projectListGlobal[0].URL);
+  });*/
   
 });
 
 
+let projectList = [];
+chrome.storage.sync.get(["projectListGlobal"], function (result) {
+  projectList = result;  
+  for(let i =0; i<projectList.projectListGlobal.length; i++){
+    addProjectRow(projectList.projectListGlobal[i]);
+    
+  }
+
+});
   
   
+function addProjectRow(projectObject){
+  let table = document.getElementById("projectTable");
+
+  let row = document.createElement("div");
+  let projectName = document.createElement("div");
+  let projectStatus = document.createElement("div");
+  let projectEdit = document.createElement("div");
+  let projectDelete = document.createElement("div");
+  
+  row.classList.add("row");
+  row.setAttribute('data-projectname', projectObject.name)
+
+  projectName.classList.add("cell");  
+  projectName.textContent = projectObject.name;
+
+  projectStatus.classList.add("cell");  
+  projectStatus.setAttribute('data-projectname', projectObject.name)
+  if(projectObject.status === '1'){
+    projectStatus.textContent = "ON";
+  } else {
+    projectStatus.textContent = "OFF";
+  }
   
 
+  projectEdit.classList.add("cell");  
+  projectEdit.setAttribute('data-projectname', projectObject.name)
+  projectEdit.innerHTML = ' <a href="#"> <img src="img/Edit_icon.svg" alt="Edit" height="16px" ></a>';
+
+  projectDelete.classList.add("cell");  
+  projectDelete.setAttribute('data-projectname', projectObject.name)
+  projectDelete.innerHTML = ' <a href="#"><img src="img/icons8-delete-64.png" alt="Delete" height="16px" ></a>';
+
+  row.appendChild(projectName);
+  row.appendChild(projectStatus);
+  row.appendChild(projectEdit);
+  row.appendChild(projectDelete);
+  
+
+  projectEdit.addEventListener('click',function(){
+    chrome.runtime.sendMessage({message: "getStringValue"}, (response) => {
+      console.log(response.message);
+    });
+  })
+
+  table.appendChild(row);
+
+}

@@ -23,7 +23,8 @@
   "content_scripts":[
 	  {
 		  "all_frames": true,
-      "matches": ["<all_urls>"],
+      "matches": ["*://*.adobe.com/*","*://localhost/*"],
+      "exclude_matches": ["*://*.corp.adobe.com/*"],
 		  "js": ["js/jquery-3.6.0.min.js","js/content.js"],
       "css": ["css/content.css"],
       "match_about_blank": true,
